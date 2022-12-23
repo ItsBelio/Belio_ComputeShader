@@ -1,0 +1,52 @@
+#pragma kernel CSMain
+
+struct Data
+{
+    float4x4 TRS;
+    float RotSpeed;
+    float YMoveSpeed;
+    float fadeSet;
+};
+bool PlaneOverlap(float4 A, float3 B)
+{
+    if(A.x*B.x+A.y*B.y+A.z*B.z+A.w<=0)
+    return true;
+    return false;
+}
+float4x4 rotateY(float a)
+{
+    return float4x4(cos(a), 0, -sin(a), 0, 0, 1, 0, 0, sin(a), 0, cos(a), 0, 0, 0, 0, 1);
+}
+StructuredBuffer<Data> data;
+AppendStructuredBuffer<Data> Res;
+float4 plane[6];
+int Count;
+[numthreads(16,16,1)]
+void CSMain(uint id:SV_GroupID,uint nums:SV_GroupIndex)
+{
+    uint index = id.x * 256 + nums;
+    if(index>Count) return;
+    float4x4 info = data[index].TRS;
+    //info = mul(rotateY(_Time), info);
+    float3 dot[2];
+    dot[0] = float3(-0.5, -0.5, -0.5);
+    dot[1] = float3(0.5, 0.5, 0.5);
+    float3 Points[8];
+    Points[0] = mul(info, float4(dot[0], 1));
+    Points[1] = mul(info, float4(dot[0].x, dot[1].y, dot[0].z, 1));
+    Points[2] = mul(info, float4(dot[1].x, dot[1].y, dot[0].z, 1));
+    Points[3] = mul(info, float4(dot[1].x, dot[0].y, dot[0].z, 1));
+    Points[4] = mul(info, float4(dot[0].x, dot[0].y, dot[1].z, 1));
+    Points[5] = mul(info, float4(dot[0].x, dot[1].y, dot[1].z, 1));
+    Points[6] = mul(info, float4(dot[1].x, dot[1].y, dot[1].z, 1));
+    Points[7] = mul(info, float4(dot[1].x, dot[0].y, dot[1].z, 1));
+    for (int i = 0; i < 6; i++)
+    {
+        for (int j = 0; j < 8; j++)
+        {
+            if(PlaneOverlap(plane[i],Points[j])) break;
+            if (j == 7) return;
+        }
+    }
+    Res.Append(data[index]);
+}

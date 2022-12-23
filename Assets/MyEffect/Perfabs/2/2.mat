@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 2
+  m_Shader: {fileID: 4800000, guid: 45cb93ff8b4aa314db2341c2c08afc2a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DiffuseTex:
+        m_Texture: {fileID: 2800000, guid: 2465e3f4c46240d46b32237960a01dfd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DissolveTex:
+        m_Texture: {fileID: 2800000, guid: a162a71e9c580594a9708d2c26fd049b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GrainTex:
+        m_Texture: {fileID: 2800000, guid: 3857559b10e5ee3469bb85f69fd18dc2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 2800000, guid: f215473b27a8773498b204196886c055, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Cull: 2
+    - _DissolveAmount: -0.7
+    - _DissolveAmount2: 0
+    - _DissolveEmissIntensity: 7
+    - _DissolveEmissIntensity2: 5
+    - _DissolveHardness: 0.03
+    - _DissolveOffset: 0.29
+    - _DissolveOffset2: 1.227
+    - _DissolveSoftNess: 0.2
+    - _DissolveTexFalloff: 1
+    - _EmissionIntensity: 2
+    - _EmissionSpeed: 0.2
+    - _FresnelIntensity: 0.28
+    - _FresnelMax: 0.6
+    - _FresnelMin: 0.4
+    - _GrainFalloff: 1
+    - _GrainIntensity: 0
+    - _LightOrDark: 1
+    - _MeatlSize: 0.3
+    - _MetalIntensity1: 0.2
+    - _MetalIntensity2: 0.3
+    - _OutLineWidth: 0.2
+    - _TotalEmissIntensity: 0
+    m_Colors:
+    - _DisolveEmissColor: {r: 0.8509804, g: 0.8784314, b: 0.4745098, a: 0}
+    - _DissolveTexTiling: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0.9056604, g: 0.17515129, b: 0.79052, a: 0}
+    - _GrainTiling: {r: 1.6, g: 1.6, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 0.9315592, b: 0, a: 1}
+    - _OutLineColor: {r: 0.19886972, g: 0.25825813, b: 0.38679248, a: 0}
+    - _TintColor1: {r: 0.8113208, g: 0.73860806, b: 0.73860806, a: 1}
+    - _TintColor2: {r: 1, g: 0.8726415, b: 0.8726415, a: 1}
+  m_BuildTextureStacks: []
